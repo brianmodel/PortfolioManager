@@ -127,8 +127,8 @@ class Portfolio:
 
 if __name__ == "__main__":
     investment = 100
-    tickers = ["MSFT", "AAPL"]
-    allocs = [0.5, 0.5]
+    tickers = ["AMZN", "AAPL"]
+    allocs = [0.7, 0.3]
     portfolio = Portfolio(investment, tickers, allocs, "2015-10-13")
 
     print("Data: ")
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     print(portfolio.risk())
     print("")
 
-    print("Sharp ratio: ")
+    print("Sharpe ratio: ")
     print(portfolio.sharpe_ratio())
     print("")
 
