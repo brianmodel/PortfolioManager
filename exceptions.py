@@ -1,0 +1,2 @@
+class AssetException(Exception):
+    pass
