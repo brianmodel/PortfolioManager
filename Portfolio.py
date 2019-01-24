@@ -15,11 +15,14 @@ class Portfolio:
         WEEKLY = 52
         ANNUALLY = 1
 
-    def __init__(self, investment, tickers, allocs, buy_date):
+    def __init__(self, investment, tickers, allocs, buy_date, buy_price=None):
         self.investment = investment
         self.tickers = tickers
         self.allocs = allocs
         self.buy_date = buy_date
+
+        if buy_price != None:
+            self.buy_price = buy_price
 
         self.load_data()
         self.sample_frequency = self.SampleFrequency.DAILY
@@ -102,6 +105,9 @@ class Portfolio:
 
             list_.append(df)
         df = pd.concat(list_, axis=1)
+
+        if hasattr(self, "buy_price"):
+            print("BUY PRICE EXISTS")
 
         Portfolio.clean_data(df, fill=True)
         self.data = df
